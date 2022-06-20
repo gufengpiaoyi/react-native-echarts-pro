@@ -122,5 +122,6 @@ export default function renderChart(props) {
       });
     }
     myChart.on('mapselectchanged', postEvent);
+    true
   `;
 }
