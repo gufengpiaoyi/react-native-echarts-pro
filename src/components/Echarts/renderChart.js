@@ -30,6 +30,13 @@ export default function renderChart(props) {
       };
       window.ReactNativeWebView.postMessage(JSON.stringify(clickParams));
     });
+    myChart.getZr().on('click',(params)=> {
+        let pointer = myChart.convertFromPixel({ seriesIndex: 0 }, [params.event.zrX, params.event.zrY]);
+        let currentIndex = pointer[0];
+        if (currentIndex !== undefined) {
+            window.ReactNativeWebView.postMessage(JSON.stringify({type: 'zr'+ params.type, params: {currentIndex}}));
+        }
+    });
     myChart.on('dataZoom', (params)=>{
         window.ReactNativeWebView.postMessage(JSON.stringify({type:params.type}));
     });

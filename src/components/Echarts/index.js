@@ -77,6 +77,8 @@ function Echarts(props, ref) {
       props.legendSelectChanged?.(echartsData.name);
     } else if (echartsData.type === "tooltipEvent") {
       props.tooltipEvent?.(echartsData.params);
+    } else if (echartsData.type === "zrclick") {
+      props.zrclick?.(echartsData);
     } else if (echartsData.type === "getInstance") {
       const result = JSON.parse(event.nativeEvent.data);
       const tempInstanceResult = { ...instanceResult };
