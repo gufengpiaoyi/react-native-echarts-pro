@@ -38,7 +38,7 @@ export default function renderChart(props) {
         }
     });
     myChart.on('dataZoom', (params)=>{
-        window.ReactNativeWebView.postMessage(JSON.stringify({type:params.type}));
+        window.ReactNativeWebView.postMessage(JSON.stringify({type:params.type, params}));
     });
     myChart.on('legendselectchanged', (params)=>{
         window.ReactNativeWebView.postMessage(JSON.stringify({type: params.type,name:params.name}));

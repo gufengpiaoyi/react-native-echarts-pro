@@ -72,7 +72,7 @@ function Echarts(props, ref) {
     const echartsData = JSON.parse(event.nativeEvent.data);
     // 判断监听类型
     if (echartsData.type === "datazoom") {
-      props.onDataZoom?.();
+      props.onDataZoom?.(echartsData);
     } else if (echartsData.type === "legendselectchanged") {
       props.legendSelectChanged?.(echartsData.name);
     } else if (echartsData.type === "tooltipEvent") {
